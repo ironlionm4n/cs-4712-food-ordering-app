@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  min-width: 20%;
+}
+
+.orderDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+  background-color: green;
+  width: 90%;
+  height: 90%;
+  padding: 12px;
+  margin: 12px;
+  gap: 2rem;
+}
+
+.orderDetailsLabel {
+  border-bottom: 2px dotted black;
+  font-size: 2rem;
+}
+
+.detail {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+}
+
+.detail ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.detail span {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+  .detail ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+[data-tip] {
+  position: relative;
+}
+
+[data-tip]:before {
+  content: attr(data-tip);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  white-space: nowrap;
+  padding: 4px 8px;
+  background: black;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: none;
+  z-index: 20;
+}
+
+[data-tip]:hover:before {
+  display: block;
+}
