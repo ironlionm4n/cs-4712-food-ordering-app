@@ -8,10 +8,22 @@ const Menu = () => {
   const [size, setSize] = useState("Small");
   const [name, setName] = useState({ firstName: "", lastName: "" });
   const [toppings, setToppings] = useState([]);
+  const [price, setPrice] = useState(7);
+
+  const handleSetSizePrice = (value) => {
+    setPrice(value);
+  };
+
+  const handleSetToppingPrice = (value) => {
+    setPrice((prevValue) => prevValue + value);
+  };
 
   const handleSetSize = (value) => {
     console.log(value);
     setSize(value);
+    if (value === "Small") handleSetSizePrice(7);
+    if (value === "Medium") handleSetSizePrice(14);
+    if (value === "Large") handleSetSizePrice(21);
   };
 
   const handleSetName = (value, field) => {
@@ -19,11 +31,14 @@ const Menu = () => {
   };
 
   const handleSetToppings = (value, name) => {
-    if (value === "on") {
+    console.log(name, value);
+    if (value) {
       setToppings((prevValue) => [...prevValue, name]);
+      handleSetToppingPrice(1);
       return;
     } else {
       setToppings((prevValue) => prevValue.filter((item) => item !== name));
+      handleSetToppingPrice(-1);
     }
   };
 
@@ -36,9 +51,15 @@ const Menu = () => {
           setSize={handleSetSize}
           name={name}
           setName={handleSetName}
+          setSizePrice={handleSetSizePrice}
         />
         <Toppings setToppings={handleSetToppings} />
-        <OrderDetails name={name} size={size} toppings={toppings} />
+        <OrderDetails
+          name={name}
+          size={size}
+          toppings={toppings}
+          price={price}
+        />
       </div>
     </div>
   );

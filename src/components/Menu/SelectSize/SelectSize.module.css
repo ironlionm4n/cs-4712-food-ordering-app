@@ -1,16 +1,18 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: grey;
   width: auto;
   padding: 12px;
+  border-radius: 5%;
 }
 
 .textField {
   width: 85%;
   font-size: 1.5rem;
+  margin-top: 0;
 }
 
 .selectSizeHeader {

@@ -8,7 +8,7 @@ const Item = ({ name, setToppings }) => {
         type="checkbox"
         id={name}
         name={name}
-        onChange={(e) => setToppings(e.target.value, name)}
+        onChange={(e) => setToppings(e.target.checked, name)}
       />
       <label htmlFor={name}>{name}</label>
     </li>
@@ -36,10 +36,12 @@ const Toppings = ({ setToppings }) => {
   return (
     // list of toppings to select from
     <div className={styles.toppingsContainer}>
-      <h2>Select Toppings</h2>
+      <h2 data-tip="Each topping is $1">Select Toppings</h2>
       <form>
         <fieldset>
-          <legend>Toppings</legend>
+          <legend style={{ fontSize: "1.5rem" }}>
+            Toppings - <strong>$1 Each</strong>
+          </legend>
           <ul className={styles.toppingsList}>
             {toppings.map((topping) => (
               <Item key={topping} name={topping} setToppings={setToppings} />

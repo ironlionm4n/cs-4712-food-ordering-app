@@ -4,16 +4,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1%;
+  padding: 1rem;
+  border-radius: 5%;
+}
+
+.toppingsContainer h2 {
+  border-bottom: 2px dotted black;
+  font-size: 2rem;
+}
+
+.toppingsContainer fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .toppingsList {
   display: grid;
   grid-template-columns: repeat(4, 2fr);
-  grid-gap: 10px;
-  padding: 8px;
+  grid-gap: 1rem;
+  padding: 1rem;
   list-style-type: none;
-  background-color: gray;
+  background-color: rgb(109, 109, 109);
+  border-radius: 5px;
+  width: 100%;
 }
 
 .toppingsList li {
@@ -24,7 +40,40 @@
 }
 
 .toppingsList li input {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
+}
+
+[data-tip] {
+  position: relative;
+}
+
+[data-tip]:before {
+  content: attr(data-tip);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  white-space: nowrap;
+  padding: 4px 8px;
+  background: black;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: none;
+  z-index: 20;
+}
+
+[data-tip]:hover:before {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .toppingsList li {
+    font-size: small;
+  }
+  .toppingsList li input {
+    width: 1rem;
+    height: 1rem;
+  }
 }

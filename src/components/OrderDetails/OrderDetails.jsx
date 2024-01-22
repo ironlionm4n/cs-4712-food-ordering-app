@@ -1,8 +1,8 @@
 import styles from "./OrderDetails.module.css";
-import { MdOutlineAttachMoney } from "react-icons/md";
 import PropTypes from "prop-types";
+import Price from "../Price/Price";
 
-const OrderDetails = ({ name, size, toppings }) => {
+const OrderDetails = ({ name, size, toppings, price }) => {
   return (
     <div className={styles.container}>
       <span
@@ -13,6 +13,7 @@ const OrderDetails = ({ name, size, toppings }) => {
       </span>
       <div className={styles.orderDetailsContainer}>
         <div className={styles.detail}>
+          <span>Name:</span>
           <span>{`${name.firstName} ${name.lastName}`}</span>
         </div>
         <div className={styles.detail}>
@@ -26,11 +27,8 @@ const OrderDetails = ({ name, size, toppings }) => {
             })}
           </ul>
         </div>
-        <div className={styles.price}>
-          <MdOutlineAttachMoney />
-          <span>0.00</span>
-        </div>
       </div>
+      <Price price={price} />
     </div>
   );
 };
@@ -39,6 +37,7 @@ OrderDetails.propTypes = {
   name: PropTypes.object.isRequired,
   size: PropTypes.string.isRequired,
   toppings: PropTypes.array.isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 export default OrderDetails;
