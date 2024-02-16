@@ -1,4 +1,3 @@
-import { IconContext } from "react-icons";
 import { GrRestaurant } from "react-icons/gr";
 import pizza from "../../assets/pizza.png";
 
@@ -26,7 +25,7 @@ const Title = () => {
           alignItems: "center",
           padding: "12px",
           margin: "12px",
-          backgroundColor: "rgba(20,185,100,0.6)",
+          backgroundColor: "rgba(251,219,101,0.6)",
           borderRadius: "64px",
           textTransform: "uppercase",
           color: "white",
@@ -34,14 +33,15 @@ const Title = () => {
           WebkitTextStroke: "2px black",
         }}
       >
-        <h1>Chef&apos;s Choice Pizza</h1>
         <div>
           <GrRestaurant
             style={{
               fontSize: "4rem",
+              color: "#3B3317",
             }}
           />
         </div>
+        <h1>Chef&apos;s Choice Pizza</h1>
       </div>
     </div>
   );

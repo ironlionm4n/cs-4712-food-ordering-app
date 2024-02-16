@@ -14,10 +14,6 @@ const Menu = () => {
     setPrice(value);
   };
 
-  const handleSetToppingPrice = (value) => {
-    setPrice((prevValue) => prevValue + value);
-  };
-
   const handleSetSize = (value) => {
     console.log(value);
     setSize(value);
@@ -34,11 +30,9 @@ const Menu = () => {
     console.log(name, value);
     if (value) {
       setToppings((prevValue) => [...prevValue, name]);
-      handleSetToppingPrice(1);
       return;
     } else {
       setToppings((prevValue) => prevValue.filter((item) => item !== name));
-      handleSetToppingPrice(-1);
     }
   };
 

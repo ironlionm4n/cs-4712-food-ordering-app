@@ -7,14 +7,13 @@ const OrderDetails = ({ name, size, toppings, price }) => {
     <div className={styles.container}>
       <span
         className={styles.orderDetailsLabel}
-        data-tip="Overview of the order"
+        data-tip="Overview details of the order in progress"
       >
         Order Details
       </span>
       <div className={styles.orderDetailsContainer}>
         <div className={styles.detail}>
-          <span>Name:</span>
-          <span>{`${name.firstName} ${name.lastName}`}</span>
+          <span>Name: {`${name.firstName} ${name.lastName}`}</span>
         </div>
         <div className={styles.detail}>
           <span>Size: {size}</span>
@@ -28,7 +27,8 @@ const OrderDetails = ({ name, size, toppings, price }) => {
           </ul>
         </div>
       </div>
-      <Price price={price} />
+      <Price price={price} toppings={toppings} />
+      <button className={styles.btn}>Submit</button>
     </div>
   );
 };
