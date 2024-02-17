@@ -3,6 +3,7 @@ import OrderDetails from "../OrderDetails/OrderDetails";
 import SelectSize from "./SelectSize/SelectSize";
 import Toppings from "./Toppings/Toppings";
 import styles from "./Menu.module.css";
+import { MdDone } from "react-icons/md";
 
 const Menu = () => {
   const [size, setSize] = useState("Small");
@@ -55,6 +56,19 @@ const Menu = () => {
           price={price}
         />
       </div>
+      <button className={styles.btn}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            width: "50%",
+          }}
+        >
+          Submit
+          <MdDone fontSize={"2rem"} />
+        </div>
+      </button>
     </div>
   );
 };

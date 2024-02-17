@@ -28,7 +28,6 @@ const OrderDetails = ({ name, size, toppings, price }) => {
         </div>
       </div>
       <Price price={price} toppings={toppings} />
-      <button className={styles.btn}>Submit</button>
     </div>
   );
 };
